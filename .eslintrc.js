@@ -12,5 +12,16 @@ module.exports = {
   ],
   rules: {
     'space-before-function-paren': ['error', 'never']
-  }
+  },
+  overrides: [
+    {
+      files: [
+        'webpack.config.js', 'webpack.config.dev.js', 'webpack.config.prod.js'
+      ],
+      rules: {
+        "no-undef": "off",
+        '@typescript-eslint/no-var-requires': 'off'
+      }
+    }
+  ]
 }
