@@ -6,7 +6,10 @@ module.exports = {
         targets: 'defaults'
       }
     ], [
-      '@babel/preset-react'
+      '@babel/preset-react',
+    ],
+    [
+      '@babel/preset-typescript',
     ]
   ]
 }

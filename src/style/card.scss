@@ -1,0 +1,19 @@
+.card {
+  background: #ccc;
+  margin: .7rem;
+  padding: .5rem .7em;
+  border-radius: .1rem;
+  &:nth-child(2n) {
+    background: #aeaeae;
+  }
+  h2 {
+    color: #111;
+    font-size: 1.2rem;
+    line-height: 1.2em;
+    width: 100%;
+    margin: 0;
+    max-height: 3.6em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

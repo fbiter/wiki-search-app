@@ -11,7 +11,8 @@ module.exports = {
     'plugin:prettier/recommended'
   ],
   rules: {
-    'space-before-function-paren': ['error', 'never']
+    'space-before-function-paren': ["error", "never"],
+    '@typescript-eslint/explicit-function-return-type': 'off'
   },
   overrides: [
     {

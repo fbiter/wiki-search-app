@@ -1,0 +1,28 @@
+html {
+  font-size: 3vw;
+}
+
+body {
+  background: #eee;
+  margin: 0;
+}
+
+h1, input {
+  margin: 0.7rem;
+}
+h1 {
+  font-size: 1.6rem;
+}
+input {
+  font-size: 1.2rem;
+  padding: .5rem;
+}
+
+@media only screen and (orientation: landscape) {
+  body {
+    margin: 0 auto;
+  }
+  html {
+    font-size: 2vh;
+  }
+}
