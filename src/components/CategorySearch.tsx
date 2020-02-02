@@ -5,21 +5,21 @@ import Card from './Card'
 export default () => {
   const store = useContext(StoreContext)
   const handleChange = function(e) {
-    console.log(e.target.value)
-    store.changePrefix(e.target.value)
+    store.newCategorySearchTerm(e.target.value)
   }
-  console.log(store)
   return (
     <>
       <input
         type="text"
         onChange={handleChange}
         placeholder="SEARCH CATEGORIES"
-        value={store.data.prefix}
+        value={store.categories.searchTerm}
       />
-      {store.data.categories.map(c => (
-        <Card id={c} label={c} handleClick={store.selectCategory} />
-      ))}
+      {store.categories.data.length
+        ? store.categories.data.map(c => (
+            <Card key={c} id={c} label={c} handleClick={store.selectCategory} />
+          ))
+        : ''}
     </>
   )
 }

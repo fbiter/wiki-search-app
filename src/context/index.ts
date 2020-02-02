@@ -1,11 +1,25 @@
 import React, {createContext} from 'react'
 
 export const StoreContext = createContext({
-  data: {
-    prefix: '',
-    categories: [],
-    selectedCategory: ''
+  categories: {
+    searchTerm: '',
+    data: [],
+    selection: []
   },
-  changePrefix: prefix => {},
-  selectCategory: cat => {}
+  subcategories: {
+    searchTerm: '',
+    data: [],
+    selection: []
+  },
+  articles: {
+    searchTerm: '',
+    data: [],
+    selection: []
+  },
+  newCategorySearchTerm: (prefix: string) => {},
+  newSubcategorySearchTerm: (term: string) => {},
+  newArticleSearchTerm: (prefix, cat) => {},
+  selectCategory: cat => {},
+  selectSubcategory: cat => {},
+  selectArticle: art => {}
 })
