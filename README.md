@@ -1,2 +1,2 @@
-# Wiki Article Picker App
+# Wiki Search App
 **work in progress**
