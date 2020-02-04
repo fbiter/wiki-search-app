@@ -26,18 +26,23 @@ export function fetchSubcategories(config: object) {
     apiEndpoint +
     '?' +
     subcatQuery +
-    `&cmtitle=Category:${config.selection.slice(-1)[0]}`
+    `&cmtitle=Category:${config.selection.slice(-1)[0].title}`
   // debugger
   return fetch(url)
     .then(res => res.json())
     .then(res => res.query.categorymembers.map(c => c.title.slice(9)))
 }
 
-export function searchArticlesByCategory(searchTerm: string, catTitle: string) {
-  if (!searchTerm) return Promise.resolve([])
+export function fetchArticlesByCategory(config: object) {
+  if (!config.searchTerm) return Promise.resolve([])
   const url =
-    apiEndpoint + '?' + artsByCatQuery + `&cmtitle=Category:${catTitle}`
-  return fetch(url).then(res => res.json())
+    apiEndpoint +
+    '?' +
+    artsByCatQuery +
+    `&cmtitle=Category:${config.selection.slice(-1)[0].title}`
+  return fetch(url)
+    .then(res => res.json())
+    .then(res => res.query.categorymembers.map(a => a.title))
 }
 
 export function searchArticles(prefix: string) {

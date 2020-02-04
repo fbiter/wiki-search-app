@@ -1,7 +1,16 @@
 export const selectFilteredSubcategories = state =>
-  state.subcategories.data.filter(
+  state.subcategories.data.filter(w => {
+    return (
+      w.title
+        .toLowerCase()
+        .indexOf(state.config.searchTerm.slice(-1)[0].toLowerCase()) !== -1
+    )
+  })
+
+export const selectFilteredArticles = state =>
+  state.articles.data.filter(
     w =>
-      w
+      w.title
         .toLowerCase()
         .indexOf(state.config.searchTerm.slice(-1)[0].toLowerCase()) !== -1
   )

@@ -5,11 +5,20 @@ export default (state, action) => {
         ...state,
         searchTerm: action.searchTerm
       }
-    case 'SET_ARTICLES':
+    case 'SET_ARTICLES': {
+      const link = function() {
+        return 'https://en.wikipedia.org/wiki/' + this.title.replace(/ /g, '_')
+      }
       return {
         ...state,
-        data: action.items
+        data: action.articles.map(a => ({
+          title: a,
+          get link() {
+            return link.call(this)
+          }
+        }))
       }
+    }
     case 'SELECT_ARTICLE':
       return {
         ...state,

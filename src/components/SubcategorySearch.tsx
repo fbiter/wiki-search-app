@@ -5,7 +5,12 @@ import {
   selectFilteredSubcategories,
   selectCurSeacrhTerm
 } from '../store/selectors'
-import {updateSearchTerm, addToSelection, newSearchTerm} from '../store/actions'
+import {
+  updateSearchTerm,
+  addToSelection,
+  newSearchTerm,
+  setSearchType
+} from '../store/actions'
 
 export default () => {
   const {state, dispatch} = useContext(StoreContext)
@@ -22,9 +27,10 @@ export default () => {
       />
       {selectFilteredSubcategories(state).map(s => (
         <Card
-          key={s}
-          id={s}
-          label={s}
+          key={s.title}
+          item={s}
+          link={s.link}
+          title={s.title}
           handleClick={() => {
             dispatch(addToSelection(s))
             dispatch(newSearchTerm(''))

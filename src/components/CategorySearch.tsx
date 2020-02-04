@@ -25,9 +25,10 @@ export default () => {
       {state.categories.data.length
         ? state.categories.data.map(c => (
             <Card
-              key={c}
-              id={c}
-              label={c}
+              key={c.title}
+              item={c}
+              link={c.link}
+              title={c.title}
               handleClick={() => {
                 dispatch(addToSelection(c))
                 dispatch(setSearchType('subcategories'))

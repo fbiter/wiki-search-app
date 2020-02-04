@@ -3,7 +3,7 @@ import rootReducer from './reducers'
 import {StoreContext} from '../context'
 import {
   fetchCategories,
-  searchArticlesByCategory,
+  fetchArticlesByCategory,
   searchArticles,
   fetchSubcategories
 } from '../services'
@@ -27,7 +27,7 @@ export default props => {
       selection: []
     },
     config: {
-      searchTerm: [],
+      searchTerm: [''],
       searchType: 'categories',
       selection: []
     }
@@ -71,7 +71,7 @@ export default props => {
       if (term.length > 0) {
         console.log(this)
 
-        searchArticlesByCategory(term, cat).then(res =>
+        fetchArticlesByCategory(term, cat).then(res =>
           dispatch({type: 'SET_ARTICLES', items: res})
         )
       } else {
