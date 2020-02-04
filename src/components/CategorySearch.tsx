@@ -1,11 +1,18 @@
 import React, {useContext} from 'react'
 import {StoreContext} from '../context'
 import Card from './Card'
+import {selectCurSeacrhTerm} from '../store/selectors'
+import {
+  updateSearchTerm,
+  addToSelection,
+  newSearchTerm,
+  setSearchType
+} from '../store/actions'
 
 export default () => {
-  const store = useContext(StoreContext)
+  const {state, dispatch} = useContext(StoreContext)
   const handleChange = function(e) {
-    store.newCategorySearchTerm(e.target.value)
+    dispatch(updateSearchTerm(e.target.value))
   }
   return (
     <>
@@ -13,11 +20,20 @@ export default () => {
         type="text"
         onChange={handleChange}
         placeholder="SEARCH CATEGORIES"
-        value={store.categories.searchTerm}
+        value={selectCurSeacrhTerm(state)}
       />
-      {store.categories.data.length
-        ? store.categories.data.map(c => (
-            <Card key={c} id={c} label={c} handleClick={store.selectCategory} />
+      {state.categories.data.length
+        ? state.categories.data.map(c => (
+            <Card
+              key={c}
+              id={c}
+              label={c}
+              handleClick={() => {
+                dispatch(addToSelection(c))
+                dispatch(setSearchType('subcategories'))
+                dispatch(newSearchTerm(''))
+              }}
+            />
           ))
         : ''}
     </>

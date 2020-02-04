@@ -1,21 +1,29 @@
 import React, {createContext} from 'react'
 
 export const StoreContext = createContext({
-  categories: {
-    searchTerm: '',
-    data: [],
-    selection: []
+  state: {
+    categories: {
+      searchTerm: '',
+      data: [],
+      selection: []
+    },
+    subcategories: {
+      searchTerm: '',
+      data: [],
+      selection: []
+    },
+    articles: {
+      searchTerm: '',
+      data: [],
+      selection: []
+    },
+    config: {
+      searchTerm: [],
+      searchType: '',
+      selection: []
+    }
   },
-  subcategories: {
-    searchTerm: '',
-    data: [],
-    selection: []
-  },
-  articles: {
-    searchTerm: '',
-    data: [],
-    selection: []
-  },
+  dispatch: arg1 => {},
   newCategorySearchTerm: (prefix: string) => {},
   newSubcategorySearchTerm: (term: string) => {},
   newArticleSearchTerm: (prefix, cat) => {},

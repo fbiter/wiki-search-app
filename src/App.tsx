@@ -1,5 +1,5 @@
 import React from 'react'
-import {searchCategories, searchArticlesByCategory} from './services'
+import {fetchCategories, searchArticlesByCategory} from './services'
 import CategorySearch from './components/CategorySearch'
 import Store from './store/index'
 import './style/root'

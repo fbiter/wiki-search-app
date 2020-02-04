@@ -2,7 +2,7 @@ import React, {useReducer} from 'react'
 import rootReducer from './reducers'
 import {StoreContext} from '../context'
 import {
-  searchCategories,
+  fetchCategories,
   searchArticlesByCategory,
   searchArticles,
   fetchSubcategories
@@ -25,19 +25,29 @@ export default props => {
       searchTerm: '',
       data: [],
       selection: []
+    },
+    config: {
+      searchTerm: [],
+      searchType: 'categories',
+      selection: []
     }
   })
 
   const Store = {
-    categories: state.categories,
-    subcategories: state.subcategories,
-    articles: state.articles,
+    state: {
+      categories: state.categories,
+      subcategories: state.subcategories,
+      articles: state.articles,
+      config: state.config
+    },
+
+    dispatch: dispatch,
 
     newCategorySearchTerm: term => {
       dispatch({type: 'SET_CATEGORY_SEARCH_TERM', searchTerm: term})
 
       if (term.length > 0) {
-        searchCategories(term).then(res =>
+        fetchCategories(term).then(res =>
           dispatch({type: 'SET_CATEGORIES', items: res})
         )
       } else {
@@ -69,16 +79,24 @@ export default props => {
       }
     },
 
-    selectCategory(cat) {
+    selectCategory(cat, searchParameter) {
       dispatch({type: 'SELECT_CATEGORY', item: {name: cat}})
-      fetchSubcategories(cat).then(res => {
-        dispatch({type: 'SET_SUBCATEGORIES', items: res})
-      })
+      if (searchParameter === 'subcategories') {
+        fetchSubcategories(cat).then(res => {
+          dispatch({type: 'SET_SUBCATEGORIES', items: res})
+        })
+      } else {
+        fetchArticles(cat).then(res => {
+          dispatch({type: 'SET_SUBCATEGORIES', items: res})
+        })
+      }
+      dispatch({type: 'SET_SEARCH_PARAMETERS', value: searchParameter})
     },
     selectSubcategory(subCat) {
       dispatch({type: 'SELECT_SUBCATEGORY', item: {name: subCat}})
       fetchSubcategories(subCat).then(res => {
         dispatch({type: 'SET_SUBCATEGORIES', items: res})
+        dispatch({type: 'CLEAR_SEARCHTERM'})
       })
     },
     selectArticle(art) {

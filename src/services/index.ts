@@ -9,16 +9,25 @@ const artsByCatQuery =
 // const articles = `action=query&list=allpages&apprefix=${apprefix}&aplimit=10&format=json&origin=*`
 
 // request functions
-export function searchCategories(searchTerm: string) {
-  if (!searchTerm) return Promise.resolve([])
-  const url = apiEndpoint + '?' + catQuery + `&search=Category:${searchTerm}`
+export function fetchCategories(config: object) {
+  if (!config) return Promise.resolve([])
+  const url =
+    apiEndpoint +
+    '?' +
+    catQuery +
+    `&search=Category:${config.searchTerm.slice(-1)}`
   return fetch(url)
     .then(res => res.json())
     .then(res => res[1].map(c => c.slice(9)))
 }
 
-export function fetchSubcategories(catTitle: string) {
-  const url = apiEndpoint + '?' + subcatQuery + `&cmtitle=Category:${catTitle}`
+export function fetchSubcategories(config: object) {
+  const url =
+    apiEndpoint +
+    '?' +
+    subcatQuery +
+    `&cmtitle=Category:${config.selection.slice(-1)[0]}`
+  // debugger
   return fetch(url)
     .then(res => res.json())
     .then(res => res.query.categorymembers.map(c => c.title.slice(9)))

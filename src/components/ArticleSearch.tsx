@@ -5,11 +5,7 @@ import Card from './Card'
 export default function() {
   const store = useContext(StoreContext)
   const handleChange = function(e) {
-    console.log(store)
-    store.newArticleSearchTerm(
-      e.target.value,
-      store.categories.selectedItem.name
-    )
+    store.newArticleSearchTerm(e.target.value, store.subcategories)
   }
   return (
     <>

@@ -1,19 +1,56 @@
 .card {
+  box-sizing: border-box;
+  // position: relative;
+  display: flex;
+  flex-wrap: nowrap;
   background: #ccc;
   margin: .7rem;
-  padding: .5rem .7em;
   border-radius: .1rem;
+  align-items: stretch;
   &:nth-child(2n) {
     background: #aeaeae;
   }
+  &:hover {
+    background: #fff
+  }
   h2 {
+    box-sizing: border-box;
+    padding: .5rem .7em;
+    display:inline-block;
     color: #111;
     font-size: 1.2rem;
-    line-height: 1.2em;
-    width: 100%;
+    line-height: 1.2rem;
+    width: 70%;
     margin: 0;
-    max-height: 3.6em;
+    height: 100%;
+    max-height: 1.9em;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
+    // border-right: 1px solid red;
+  }
+  .subcat-query-btn {
+    border-left: .15rem solid #eee;
+    box-sizing: border-box;
+    padding: .5rem .7em;
+    // line-height: 1.2rem;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .articles {
+    border-left: .15rem solid #eee;
+    box-sizing: border-box;
+    padding: .5rem .7em;
+    // line-height: 1.2rem;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
