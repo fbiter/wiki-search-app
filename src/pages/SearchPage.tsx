@@ -1,9 +1,10 @@
 import React, {useContext, useEffect} from 'react'
-import CategorySearch from '../components/CategoryList'
+import CategoryList from '../components/CategoryList'
 import {StoreContext} from '../context'
-import ArticleSearch from '../components/ArticleList'
-import SubcategorySearch from '../components/SubcategoryList'
+import ArticleList from '../components/ArticleList'
+import SubcategoryList from '../components/SubcategoryList'
 import store from '../store'
+import '../style/searchPage.scss'
 import {
   fetchCategories,
   fetchSubcategories,
@@ -47,15 +48,22 @@ export default function() {
   }, [state.config.searchTerm, state.config.searchType, state.config.selection])
   return (
     <>
-      <input
-        type="text"
-        onChange={handleChange}
-        placeholder="SEARCH CATEGORIES"
-        value={selectCurSeacrhTerm(state)}
-      />
-      {state.config.searchType === 'categories' && <CategorySearch />}
-      {state.config.searchType === 'subcategories' && <SubcategorySearch />}
-      {state.config.searchType === 'articles' && <ArticleSearch />}
+      <form className="search-form" onSubmit={e => e.preventDefault()}>
+        <label className="input-label" htmlFor="input-field">
+          Search {state.config.searchType}
+        </label>
+        <input
+          id="input-field"
+          className="input-field"
+          type="text"
+          onChange={handleChange}
+          placeholder="type here"
+          value={selectCurSeacrhTerm(state)}
+        />
+      </form>
+      {state.config.searchType === 'categories' && <CategoryList />}
+      {state.config.searchType === 'subcategories' && <SubcategoryList />}
+      {state.config.searchType === 'articles' && <ArticleList />}
     </>
   )
 }

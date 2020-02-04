@@ -4,36 +4,40 @@
   display: flex;
   flex-wrap: nowrap;
   background: #ccc;
-  margin: .7rem;
+  margin: .9rem;
   border-radius: .1rem;
   align-items: stretch;
+  color: #111;
   &:nth-child(2n) {
-    background: #aeaeae;
+    // background: #bbb;
   }
   &:hover {
-    background: #fff
+    background: #f5f5f5;
   }
-  h2 {
+  a {
     box-sizing: border-box;
-    padding: .5rem .7em;
+    padding: .7rem .9em;
+    font-weight: normal;
     display:inline-block;
-    color: #111;
+    color: inherit;
     font-size: 1.2rem;
     line-height: 1.2rem;
     width: 70%;
     margin: 0;
     height: 100%;
-    max-height: 1.9em;
+    max-height: 2.6em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    text-decoration: none;
     // border-right: 1px solid red;
   }
   .subcat-query-btn {
-    border-left: .15rem solid #eee;
+    color: inherit;
+    font-size: 1rem;
+    border-left: .1rem solid #eee;
     box-sizing: border-box;
-    padding: .5rem .7em;
-    // line-height: 1.2rem;
+    padding: .7rem .9em;
     display: inline-block;
     vertical-align: middle;
     width: 20%;
@@ -42,10 +46,11 @@
     white-space: nowrap;
   }
   .articles {
-    border-left: .15rem solid #eee;
+    color: inherit;
+    font-size: 1rem;
+    border-left: .1rem solid #eee;
     box-sizing: border-box;
-    padding: .5rem .7em;
-    // line-height: 1.2rem;
+    padding: .7rem .9em;
     display: inline-block;
     vertical-align: middle;
     width: 20%;

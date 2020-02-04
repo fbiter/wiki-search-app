@@ -9,7 +9,7 @@ export default () => {
   return (
     <div>
       <Store>
-        <h1>Heading here</h1>
+        <h1>Wiki Search App</h1>
         <SearchPage />
       </Store>
     </div>

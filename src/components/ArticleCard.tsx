@@ -9,9 +9,7 @@ export default function(props) {
   // const link = 'https://en.wikipedia.org/wiki/' + title.replace(/ /g, '_')
   return (
     <div className="card">
-      <h2>
-        <a href={link}>{title}</a>
-      </h2>
+      <a href={link}>{title}</a>
     </div>
   )
 }
