@@ -1,18 +1,27 @@
 import React, {useContext, useEffect} from 'react'
-import CategorySearch from '../components/CategorySearch'
+import CategorySearch from '../components/CategoryList'
 import {StoreContext} from '../context'
-import ArticleSearch from '../components/ArticleSearch'
-import SubcategorySearch from '../components/SubcategorySearch'
+import ArticleSearch from '../components/ArticleList'
+import SubcategorySearch from '../components/SubcategoryList'
 import store from '../store'
 import {
   fetchCategories,
   fetchSubcategories,
   fetchArticlesByCategory
 } from '../services'
-import {setCategories, setSubcategories, setArticles} from '../store/actions'
+import {
+  setCategories,
+  setSubcategories,
+  setArticles,
+  updateSearchTerm
+} from '../store/actions'
+import {selectCurSeacrhTerm} from '../store/selectors'
 
 export default function() {
   const {state, dispatch} = useContext(StoreContext)
+  const handleChange = function(e) {
+    dispatch(updateSearchTerm(e.target.value))
+  }
   // ako se promjeni searchParameter ili searchTerm -> fetch
   console.log(state)
   useEffect(() => {
@@ -38,6 +47,12 @@ export default function() {
   }, [state.config.searchTerm, state.config.searchType, state.config.selection])
   return (
     <>
+      <input
+        type="text"
+        onChange={handleChange}
+        placeholder="SEARCH CATEGORIES"
+        value={selectCurSeacrhTerm(state)}
+      />
       {state.config.searchType === 'categories' && <CategorySearch />}
       {state.config.searchType === 'subcategories' && <SubcategorySearch />}
       {state.config.searchType === 'articles' && <ArticleSearch />}
