@@ -3,14 +3,11 @@
   // position: relative;
   display: flex;
   flex-wrap: nowrap;
-  background: #ccc;
+  background: #d7d7d7;
   margin: .9rem;
   border-radius: .1rem;
   align-items: stretch;
   color: #111;
-  &:nth-child(2n) {
-    // background: #bbb;
-  }
   &:hover {
     background: #b3b3b3;
   }
