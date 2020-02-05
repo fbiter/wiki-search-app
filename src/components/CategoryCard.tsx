@@ -8,13 +8,15 @@ export default function(props) {
   const {item, id, title, link, handleClick} = props
   // const link = 'https://en.wikipedia.org/wiki/' + title.replace(/ /g, '_')
   return (
-    <div className="card">
-      <a href={link}>{title}</a>
-      <span className="subcat-query-btn" onClick={handleClick}>
+    <li className="list-item">
+      <a className="item-title" href={link}>
+        {title}
+      </a>
+      <span className="item-secondary" onClick={handleClick}>
         Subcategories
       </span>
       <a
-        className="articles"
+        className="item-secondary"
         onClick={() => {
           dispatch(addToSelection(item))
           dispatch(setSearchType('articles'))
@@ -23,6 +25,6 @@ export default function(props) {
       >
         Articles
       </a>
-    </div>
+    </li>
   )
 }

@@ -3,11 +3,13 @@ import {StoreContext} from '../context'
 import CategoryCard from './CategoryCard'
 import {selectFilteredSubcategories} from '../store/selectors'
 import {addToSelection, newSearchTerm} from '../store/actions'
+import HeadingCard from './HeadingCard'
 
 export default () => {
   const {state, dispatch} = useContext(StoreContext)
   return (
-    <>
+    <ol className="list">
+      <HeadingCard labels={['Title', 'Subcategories', 'Articles']} />
       {selectFilteredSubcategories(state).map(s => (
         <CategoryCard
           key={s.title}
@@ -20,6 +22,6 @@ export default () => {
           }}
         />
       ))}
-    </>
+    </ol>
   )
 }

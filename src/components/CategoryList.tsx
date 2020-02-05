@@ -2,11 +2,13 @@ import React, {useContext} from 'react'
 import {StoreContext} from '../context'
 import CategoryCard from './CategoryCard'
 import {addToSelection, newSearchTerm, setSearchType} from '../store/actions'
+import HeadingCard from './HeadingCard'
 
 export default () => {
   const {state, dispatch} = useContext(StoreContext)
   return (
-    <>
+    <ol className="list">
+      <HeadingCard labels={['Title', 'Subcategories', 'Articles']} />
       {state.categories.data.map(c => (
         <CategoryCard
           key={c.title}
@@ -20,6 +22,6 @@ export default () => {
           }}
         />
       ))}
-    </>
+    </ol>
   )
 }

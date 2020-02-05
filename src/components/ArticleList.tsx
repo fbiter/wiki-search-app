@@ -3,11 +3,13 @@ import {StoreContext} from '../context'
 import Card from './CategoryCard'
 import {selectFilteredArticles} from '../store/selectors'
 import ArticleCard from './ArticleCard'
+import HeadingCard from './HeadingCard'
 
 export default function() {
   const {state, dispatch} = useContext(StoreContext)
   return (
-    <>
+    <ol className="list">
+      <HeadingCard labels={['Title']} />
       {selectFilteredArticles(state).map(c => (
         <ArticleCard
           key={c.title}
@@ -18,6 +20,6 @@ export default function() {
           handleClick={() => {}}
         />
       ))}
-    </>
+    </ol>
   )
 }
