@@ -1,7 +1,7 @@
 import React from 'react'
 import '../style/card'
 
-export default function(props) {
+export default function CategoryRow(props) {
   const {item, handleSubcatClick, handleArticleClick} = props
   return (
     <li className="list-item">

@@ -5,7 +5,7 @@ import {StoreContext} from '../context'
 import initialValue from './initialValue'
 
 // Store
-export default props => {
+export default function Store(props) {
   const [state, dispatch] = useReducer(rootReducer, initialValue)
 
   const Store = {

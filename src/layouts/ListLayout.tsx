@@ -1,7 +1,7 @@
 import React from 'react'
 import HeadingCard from '../components/HeadingRow'
 
-export default props => {
+export default function ListLayout(props) {
   const {children, labels} = props
   return (
     <>

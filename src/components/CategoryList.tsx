@@ -4,7 +4,7 @@ import CategoryRow from './CategoryRow'
 import {addToSelection, newSearchTerm, setSearchType} from '../store/actions'
 import {ListLayout} from '../layouts'
 
-export default props => {
+export default function CategoryList(props) {
   const {dispatch} = useContext(StoreContext)
   const {data} = props
   return (

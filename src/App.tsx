@@ -3,7 +3,7 @@ import {Store} from './store'
 import './style/root'
 import {SearchPage} from './pages'
 
-export default () => {
+export default function App() {
   return (
     <div>
       <Store>

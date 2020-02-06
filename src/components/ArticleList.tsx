@@ -2,7 +2,7 @@ import React from 'react'
 import ArticleRow from './ArticleRow'
 import {ListLayout} from '../layouts'
 
-export default props => {
+export default function ArticleList(props) {
   const {data} = props
   return (
     <ListLayout labels={['Title']}>

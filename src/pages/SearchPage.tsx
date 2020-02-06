@@ -23,7 +23,7 @@ import {
 } from '../store/selectors'
 import useFetch from '../hooks/useFetch'
 
-export default function() {
+export default function SearchPage() {
   const {state, dispatch} = useContext(StoreContext)
   const handleChange = function(e) {
     dispatch(updateSearchTerm(e.target.value))
