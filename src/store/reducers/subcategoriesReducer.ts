@@ -17,6 +17,18 @@ export default (state, action) => {
         }))
       }
     }
+    case 'UPDATE_SUBCATEGORY_DETAILS': {
+      const data = state.data.map(d => {
+        return {
+          ...d,
+          ...action.dataDetails.filter(details => details.title === d.title)[0]
+        }
+      })
+      return {
+        ...state,
+        data: data
+      }
+    }
     default:
       return state
   }

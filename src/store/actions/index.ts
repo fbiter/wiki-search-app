@@ -12,6 +12,20 @@ export function updateSearchTerm(searchTerm: string) {
   }
 }
 
+export function updateDataDetails(dataDetails) {
+  return {
+    type: 'UPDATE_DATA_DETAILS',
+    dataDetails: dataDetails
+  }
+}
+
+export function updateSubcategoryDetails(dataDetails) {
+  return {
+    type: 'UPDATE_SUBCATEGORY_DETAILS',
+    dataDetails: dataDetails
+  }
+}
+
 export function setSubcategories(subcategories) {
   return {
     type: 'SET_SUBCATEGORIES',

@@ -1,27 +1,30 @@
 import React, {useContext} from 'react'
 import {StoreContext} from '../context'
-import CategoryCard from './CategoryCard'
+import CategoryRow from './CategoryRow'
 import {addToSelection, newSearchTerm, setSearchType} from '../store/actions'
-import HeadingCard from './HeadingCard'
+import ListLayout from '../layouts/ListLayout'
 
-export default () => {
-  const {state, dispatch} = useContext(StoreContext)
+export default props => {
+  const {dispatch} = useContext(StoreContext)
+  const {data} = props
   return (
-    <ol className="list">
-      <HeadingCard labels={['Title', 'Subcategories', 'Articles']} />
-      {state.categories.data.map(c => (
-        <CategoryCard
+    <ListLayout labels={['Title', 'Subcategories', 'Articles']}>
+      {data.map(c => (
+        <CategoryRow
           key={c.title}
           item={c}
-          link={c.link}
-          title={c.title}
-          handleClick={() => {
-            dispatch(addToSelection(c))
+          handleSubcatClick={item => {
+            dispatch(addToSelection(item))
             dispatch(setSearchType('subcategories'))
+            dispatch(newSearchTerm(''))
+          }}
+          handleArticleClick={item => {
+            dispatch(addToSelection(item))
+            dispatch(setSearchType('articles'))
             dispatch(newSearchTerm(''))
           }}
         />
       ))}
-    </ol>
+    </ListLayout>
   )
 }

@@ -1,25 +1,14 @@
-import React, {useContext} from 'react'
-import {StoreContext} from '../context'
-import Card from './CategoryCard'
-import {selectFilteredArticles} from '../store/selectors'
-import ArticleCard from './ArticleCard'
-import HeadingCard from './HeadingCard'
+import React from 'react'
+import ArticleRow from './ArticleRow'
+import ListLayout from '../layouts/ListLayout'
 
-export default function() {
-  const {state, dispatch} = useContext(StoreContext)
+export default props => {
+  const {data} = props
   return (
-    <ol className="list">
-      <HeadingCard labels={['Title']} />
-      {selectFilteredArticles(state).map(c => (
-        <ArticleCard
-          key={c.title}
-          id={c}
-          item={c}
-          link={c.link}
-          title={c.title}
-          handleClick={() => {}}
-        />
+    <ListLayout labels={['Title']}>
+      {data.map(c => (
+        <ArticleRow key={c.title} item={c} />
       ))}
-    </ol>
+    </ListLayout>
   )
 }
