@@ -1,4 +1,4 @@
-export function setCategories(categories) {
+export function setCategories(categories: string[]) {
   return {
     type: 'SET_CATEGORIES',
     categories: categories

@@ -1,11 +1,9 @@
 import React from 'react'
-import Store from './store/index'
+import {Store} from './store'
 import './style/root'
 import {SearchPage} from './pages'
 
 export default () => {
-  // console.log(searchCategories('war'))
-  // console.log(searchArticlesByCategory())
   return (
     <div>
       <Store>

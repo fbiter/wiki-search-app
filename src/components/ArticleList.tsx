@@ -1,6 +1,6 @@
 import React from 'react'
 import ArticleRow from './ArticleRow'
-import ListLayout from '../layouts/ListLayout'
+import {ListLayout} from '../layouts'
 
 export default props => {
   const {data} = props

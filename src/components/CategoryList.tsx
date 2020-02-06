@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import {StoreContext} from '../context'
 import CategoryRow from './CategoryRow'
 import {addToSelection, newSearchTerm, setSearchType} from '../store/actions'
-import ListLayout from '../layouts/ListLayout'
+import {ListLayout} from '../layouts'
 
 export default props => {
   const {dispatch} = useContext(StoreContext)

@@ -3,12 +3,10 @@
   margin: 0;
   .list-item {
     box-sizing: border-box;
-    // position: relative;
     display: flex;
     flex-wrap: nowrap;
     background: #d7d7d7;
     margin: .1rem .9rem;
-    // border-radius: .1rem;
     align-items: stretch;
     color: #111;
     &:hover {
@@ -21,7 +19,6 @@
       display:inline-block;
       color: inherit;
       font-size: 1rem;
-      // line-height: 1.2rem;
       width: 70%;
       margin: 0;
       height: 100%;
@@ -30,7 +27,11 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       text-decoration: none;
-      // border-right: 1px solid red;
+
+      &:first-child:nth-child(1) {
+        // this rule applies when item-title has no siblings
+        width: 100%
+      }
     }
     .item-secondary {
       cursor: pointer;
