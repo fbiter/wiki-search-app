@@ -1,7 +1,7 @@
 import React from 'react'
 import '../style/card'
 
-export default function HeadingRow(props}) {
+export default function HeadingRow(props) {
   const {labels} = props
   return (
     <li className="list-item heading-item">

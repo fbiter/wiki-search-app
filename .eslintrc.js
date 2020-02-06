@@ -13,7 +13,8 @@ module.exports = {
   ],
   rules: {
     'space-before-function-paren': ["error", "never"],
-    '@typescript-eslint/explicit-function-return-type': 'off'
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    'react/prop-types': 'off'
   },
   overrides: [
     {
