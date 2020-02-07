@@ -1,73 +1,22 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useContext} from 'react'
 import {ArticleList, CategoryList} from '../components'
 import {StoreContext} from '../context'
 import '../style/searchPage.scss'
 import {
-  fetchCategories,
-  fetchSubcategories,
-  fetchArticlesByCategory,
-  fetchCategoriesInfo
-} from '../services'
-import {
-  setCategories,
-  setSubcategories,
-  setArticles,
-  updateSearchTerm,
-  updateDataDetails,
-  updateSubcategoryDetails,
-  changeListSize
-} from '../store/actions'
-import {
-  selectCurSeacrhTerm,
   selectFilteredSubcategories,
   selectFilteredArticles
 } from '../store/selectors'
 import useFetch from '../hooks/useFetch'
+import SearchForm from '../components/SearchForm'
 
 export default function SearchPage() {
   const {state, dispatch} = useContext(StoreContext)
-  const handleChange = function(e) {
-    dispatch(updateSearchTerm(e.target.value))
-  }
-
-  const handleListSizeChange = e => {
-    dispatch(changeListSize(parseInt(e.target.value)))
-  }
 
   useFetch(state, dispatch)
 
   return (
     <>
-      <form className="search-form" onSubmit={e => e.preventDefault()}>
-        <div className="form-field-box">
-          <label className="form-label" htmlFor="input-field">
-            Search {state.config.searchType}
-          </label>
-          <input
-            id="input-field"
-            className="form-input"
-            type="text"
-            onChange={handleChange}
-            placeholder="type here"
-            value={selectCurSeacrhTerm(state)}
-          />
-        </div>
-        <div className="form-field-box">
-          <label className="form-label" htmlFor="list-size-field">
-            List size
-          </label>
-          <select
-            id="list-size-field"
-            className="form-input"
-            onChange={handleListSizeChange}
-            value={state.config.listSize}
-          >
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-          </select>
-        </div>
-      </form>
+      <SearchForm />
       {state.config.searchType === 'categories' && (
         <CategoryList
           data={state.categories.data.slice(0, state.config.listSize)}
