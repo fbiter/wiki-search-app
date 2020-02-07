@@ -1,6 +1,5 @@
 import {apiEndpoint, catQuery} from './settings'
 
-// REQUEST FUNCTIONS
 export default (config): Promise<string[]> => {
   if (!config) return Promise.resolve([])
   const url =

@@ -1,17 +1,10 @@
 import {useEffect} from 'react'
 import {
   fetchCategories,
-  fetchCategoriesInfo,
   fetchSubcategories,
   fetchArticlesByCategory
 } from '../services'
-import {
-  setCategories,
-  updateDataDetails,
-  setSubcategories,
-  updateSubcategoryDetails,
-  setArticles
-} from '../store/actions'
+import {setCategories, setSubcategories, setArticles} from '../store/actions'
 
 export default (state, dispatch) => {
   useEffect(() => {

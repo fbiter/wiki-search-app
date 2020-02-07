@@ -1,15 +1,8 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useContext} from 'react'
 import {StoreContext} from '../context'
 import CategoryRow from './CategoryRow'
-import {
-  addToSelection,
-  newSearchTerm,
-  setSearchType,
-  setCategories,
-  setSubcategories
-} from '../store/actions'
+import {addToSelection, newSearchTerm, setSearchType} from '../store/actions'
 import {ListLayout} from '../layouts'
-import {fetchCategoriesInfo} from '../services'
 import useFetchCategoryInfo from '../hooks/useFetchCategoryInfo'
 
 export default function CategoryList(props) {
