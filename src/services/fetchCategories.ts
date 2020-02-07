@@ -4,7 +4,10 @@ import {apiEndpoint, catQuery} from './settings'
 export default (config): Promise<string[]> => {
   if (!config) return Promise.resolve([])
   const url =
-    apiEndpoint + catQuery + `&search=Category:${config.searchTerm.slice(-1)}`
+    apiEndpoint +
+    catQuery +
+    `&limit=${config.listSize}` +
+    `&search=Category:${config.searchTerm.slice(-1)}`
   return fetch(url)
     .then(res => res.json())
     .then(res => res[1].map(c => c.slice(9)))

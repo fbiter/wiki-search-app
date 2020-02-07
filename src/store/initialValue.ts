@@ -16,6 +16,7 @@ export default {
   },
   config: {
     searchTerm: [''],
+    listSize: 10,
     searchType: 'categories',
     selection: []
   }

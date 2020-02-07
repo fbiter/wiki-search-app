@@ -14,7 +14,8 @@ import {
   setArticles,
   updateSearchTerm,
   updateDataDetails,
-  updateSubcategoryDetails
+  updateSubcategoryDetails,
+  changeListSize
 } from '../store/actions'
 import {
   selectCurSeacrhTerm,
@@ -29,31 +30,61 @@ export default function SearchPage() {
     dispatch(updateSearchTerm(e.target.value))
   }
 
+  const handleListSizeChange = e => {
+    dispatch(changeListSize(parseInt(e.target.value)))
+  }
+
   useFetch(state, dispatch)
 
   return (
     <>
       <form className="search-form" onSubmit={e => e.preventDefault()}>
-        <label className="input-label" htmlFor="input-field">
-          Search {state.config.searchType}
-        </label>
-        <input
-          id="input-field"
-          className="input-field"
-          type="text"
-          onChange={handleChange}
-          placeholder="type here"
-          value={selectCurSeacrhTerm(state)}
-        />
+        <div className="form-field-box">
+          <label className="form-label" htmlFor="input-field">
+            Search {state.config.searchType}
+          </label>
+          <input
+            id="input-field"
+            className="form-input"
+            type="text"
+            onChange={handleChange}
+            placeholder="type here"
+            value={selectCurSeacrhTerm(state)}
+          />
+        </div>
+        <div className="form-field-box">
+          <label className="form-label" htmlFor="list-size-field">
+            List size
+          </label>
+          <select
+            id="list-size-field"
+            className="form-input"
+            onChange={handleListSizeChange}
+            value={state.config.listSize}
+          >
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select>
+        </div>
       </form>
       {state.config.searchType === 'categories' && (
-        <CategoryList data={state.categories.data} />
+        <CategoryList
+          data={state.categories.data.slice(0, state.config.listSize)}
+        />
       )}
       {state.config.searchType === 'subcategories' && (
-        <CategoryList data={selectFilteredSubcategories(state)} />
+        <CategoryList
+          data={selectFilteredSubcategories(state).slice(
+            0,
+            state.config.listSize
+          )}
+        />
       )}
       {state.config.searchType === 'articles' && (
-        <ArticleList data={selectFilteredArticles(state)} />
+        <ArticleList
+          data={selectFilteredArticles(state).slice(0, state.config.listSize)}
+        />
       )}
     </>
   )

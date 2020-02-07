@@ -59,3 +59,10 @@ export function newSearchTerm(searchTerm: string) {
     searchTerm: searchTerm
   }
 }
+
+export function changeListSize(listSize: number) {
+  return {
+    type: 'CHANGE_LIST_SIZE',
+    listSize: listSize
+  }
+}

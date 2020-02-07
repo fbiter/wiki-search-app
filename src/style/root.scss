@@ -23,6 +23,12 @@ input {
   padding: .5rem;
 }
 
+@media (min-aspect-ratio: 14/9) {
+  body {
+    width: 60%;
+  }
+}
+
 @media only screen and (orientation: landscape) {
   body {
     margin: 0 auto;

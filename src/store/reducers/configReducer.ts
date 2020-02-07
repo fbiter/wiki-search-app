@@ -1,4 +1,5 @@
 export default (state, action) => {
+  console.log(state)
   switch (action.type) {
     case 'ADD_TO_SELECTION': {
       return {
@@ -20,6 +21,11 @@ export default (state, action) => {
       return {
         ...state,
         searchType: action.searchType
+      }
+    case 'CHANGE_LIST_SIZE':
+      return {
+        ...state,
+        listSize: action.listSize
       }
     default:
       return state

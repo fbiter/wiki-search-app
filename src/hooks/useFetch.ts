@@ -19,9 +19,6 @@ export default (state, dispatch) => {
       if (state.config.searchTerm.slice(-1)[0].length > 0) {
         fetchCategories(state.config).then(res => {
           dispatch(setCategories(res))
-          fetchCategoriesInfo(res).then(res2 => {
-            dispatch(updateDataDetails(res2))
-          })
         })
       } else {
         dispatch(setCategories([]))
@@ -32,14 +29,16 @@ export default (state, dispatch) => {
     ) {
       fetchSubcategories(state.config).then(res => {
         dispatch(setSubcategories(res))
-        fetchCategoriesInfo(res).then(res2 =>
-          dispatch(updateSubcategoryDetails(res2))
-        )
       })
     } else if (state.config.searchTerm.slice(-1)[0].length === 0) {
       fetchArticlesByCategory(state.config).then(res =>
         dispatch(setArticles(res))
       )
     }
-  }, [state.config.searchTerm, state.config.searchType, state.config.selection])
+  }, [
+    state.config.searchTerm,
+    state.config.searchType,
+    state.config.selection,
+    state.config.listSize
+  ])
 }
