@@ -50,5 +50,8 @@
   }
   .heading-item {
     border-radius: .5rem .5rem 0 0;
+    .item-secondary {
+      cursor: default;
+    }
   }
 }

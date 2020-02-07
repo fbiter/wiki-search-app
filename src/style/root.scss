@@ -23,17 +23,19 @@ input {
   padding: .5rem;
 }
 
-@media (min-aspect-ratio: 14/9) {
-  body {
-    width: 60%;
-  }
-}
-
+// for wide displays
 @media only screen and (orientation: landscape) {
   body {
     margin: 0 auto;
   }
   html {
     font-size: 2vh;
+  }
+}
+
+// for even wider displays
+@media (min-aspect-ratio: 14/9) {
+  body {
+    width: 60%;
   }
 }

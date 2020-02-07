@@ -1,7 +1,6 @@
 import React, {useContext} from 'react'
 import {ArticleList, CategoryList} from '../components'
 import {StoreContext} from '../context'
-import '../style/searchPage.scss'
 import {
   selectFilteredSubcategories,
   selectFilteredArticles

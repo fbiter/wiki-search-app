@@ -1,5 +1,4 @@
 import React from 'react'
-import '../style/card'
 
 export default function CategoryRow(props) {
   const {item, handleSubcatClick, handleArticleClick} = props

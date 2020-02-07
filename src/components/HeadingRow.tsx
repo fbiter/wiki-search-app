@@ -1,5 +1,4 @@
 import React from 'react'
-import '../style/card'
 
 export default function HeadingRow(props) {
   const {labels} = props

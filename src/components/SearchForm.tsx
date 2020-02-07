@@ -2,6 +2,7 @@ import React, {useContext} from 'react'
 import {StoreContext} from '../context'
 import {updateSearchTerm, changeListSize} from '../store/actions'
 import {selectCurSeacrhTerm} from '../store/selectors'
+import '../style/SearchForm'
 
 export default function SearchForm() {
   const {state, dispatch} = useContext(StoreContext)
