@@ -9,6 +9,7 @@ export default function CategoryList(props) {
   const {state, dispatch} = useContext(StoreContext)
   const {data} = props
 
+  // fetch category size info
   useFetchCategoryInfo(state, dispatch, data)
 
   return (

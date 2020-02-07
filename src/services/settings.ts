@@ -1,3 +1,5 @@
+// variables holding api request strings
+
 export const apiEndpoint = 'https://en.wikipedia.org/w/api.php'
 
 export const catQuery = '?action=opensearch&namespace=14&format=json&origin=*'

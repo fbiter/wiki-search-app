@@ -6,6 +6,8 @@ import initialValue from './initialValue'
 
 // Store
 export default function Store(props) {
+  //
+  // store is instantiated here:
   const [state, dispatch] = useReducer(rootReducer, initialValue)
 
   const Store = {
