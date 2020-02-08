@@ -1,6 +1,8 @@
 html {
+  --font1: Verdana, Arial, Helvetica, sans-serif;
+  --font2: Courier, "Courier New", monospace;
   font-size: 3vw;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -17,15 +19,32 @@ body {
 }
 
 .header-title {
-  font-size: 1.4rem;
+  font-size: 1rem;
   background: var(--bg-color1-inverse);
   color: var(--bg-color-base);
   margin: 0;
-  padding: 0.7rem 1rem;
+  padding: 1rem;
 }
-input {
-  font-size: 1.2rem;
-  padding: .5rem;
+
+.topPage {
+  min-height: 90vh;
+  main {
+    display: block;
+  }
+}
+
+footer {
+  display: block;
+  background: var(--bg-color1-inverse);
+  height: 10vh;
+  span {
+    box-sizing: border-box;
+    font-family: var(--font2);
+    font-size: .9rem;
+    padding: 0 .9rem;
+    color: var(--bg-color-base);
+    line-height: 10vh;
+  }
 }
 
 // for wide displays

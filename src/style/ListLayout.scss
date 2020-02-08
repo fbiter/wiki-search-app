@@ -1,6 +1,6 @@
 .list {
   padding: 0;
-  margin: 0;
+  margin: 0 0 .9rem 0;
   .list-item {
     box-sizing: border-box;
     display: flex;
@@ -9,6 +9,7 @@
     margin: .15rem 0;
     align-items: stretch;
     color: var(--color1);
+    font-size: 1rem;
     &:hover {
       background: var(--bg-color1-hover);
     }
@@ -18,7 +19,7 @@
       font-weight: normal;
       display:inline-block;
       color: inherit;
-      font-size: 1rem;
+      font-size: inherit;
       width: 70%;
       margin: 0;
       height: 100%;
@@ -39,7 +40,7 @@
     .item-secondary {
       cursor: pointer;
       color: inherit;
-      font-size: 1rem;
+      font-size: inherit;
       border-left: .15rem solid var(--bg-color-base);
       box-sizing: border-box;
       padding: .7rem .9em;
