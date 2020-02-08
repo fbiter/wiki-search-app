@@ -2,12 +2,13 @@
   "name": "wiki-search-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --env=dev"
+    "start": "npm run dev",
+    "dev": "webpack-dev-server --env=dev",
+    "build": "webpack --env=prod"
   },
   "keywords": [],
-  "author": "",
+  "author": "Filip",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.8.3",
