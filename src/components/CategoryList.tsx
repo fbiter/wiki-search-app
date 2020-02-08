@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 import {StoreContext} from '../context'
 import CategoryRow from './CategoryRow'
-import {addToSelection, newSearchTerm} from '../store/actions'
+import {addToSelection, updateSearchTerm} from '../store/actions'
 import {ListLayout} from '../layouts'
 import useFetchCategoryInfo from '../hooks/useFetchCategoryInfo'
 
@@ -20,11 +20,11 @@ export default function CategoryList(props) {
           item={c}
           handleSubcatClick={item => {
             dispatch(addToSelection(item.title, 'subcategories'))
-            dispatch(newSearchTerm(''))
+            dispatch(updateSearchTerm(''))
           }}
           handleArticleClick={item => {
             dispatch(addToSelection(item.title, 'articles'))
-            dispatch(newSearchTerm(''))
+            dispatch(updateSearchTerm(''))
           }}
         />
       ))}

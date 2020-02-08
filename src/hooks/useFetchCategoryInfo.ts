@@ -1,6 +1,6 @@
 import {useEffect} from 'react'
 import {fetchCategoriesInfo} from '../services'
-import {updateDataDetails, updateSubcategoryDetails} from '../store/actions'
+import {updateCategoryInfo, updateSubcategoryInfo} from '../store/actions'
 import {selectCurConfig} from '../store/selectors'
 
 // once categories are about to be listed, fetch their size info
@@ -14,11 +14,11 @@ export default (state, dispatch, data) => {
       const {searchType} = selectCurConfig(state)
       if (searchType === 'categories') {
         fetchCategoriesInfo(data.map(d => d.title)).then(res =>
-          dispatch(updateDataDetails(res))
+          dispatch(updateCategoryInfo(res))
         )
       } else if (searchType === 'subcategories') {
         fetchCategoriesInfo(data.map(d => d.title)).then(res =>
-          dispatch(updateSubcategoryDetails(res))
+          dispatch(updateSubcategoryInfo(res))
         )
       }
     }

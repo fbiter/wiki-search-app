@@ -1,27 +1,20 @@
-// this object is used 2 times:
+// this object is used in 2 places:
 // (1) - as a defaultValue in React.createContext's argument
-// (2) - as an initialState in  useReducer's argargument
+// (2) - as an initialState in  useReducer's argument
 
 export default {
   categories: {
-    searchTerm: '',
-    data: [],
-    selection: []
+    data: []
   },
   subcategories: {
-    searchTerm: '',
-    data: [],
-    selection: []
+    data: []
   },
   articles: {
-    searchTerm: '',
-    data: [],
-    selection: []
+    data: []
   },
   config: {
-    searchTerm: [''],
+    searchTerm: '',
     listSize: 10,
-    searchType: 'categories',
     startSelection: {title: '', searchType: 'categories'},
     selectionHistory: []
   }

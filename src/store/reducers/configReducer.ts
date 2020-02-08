@@ -1,9 +1,7 @@
 export default (state, action) => {
   console.log(state)
   switch (action.type) {
-    case 'ADD_TO_SELECTION': {
-      // const newSelection = state.selection.slice()
-      // newSelection[newSelection.length - 1].title = action.title
+    case 'ADD_TO_SELECTION':
       return {
         ...state,
         selectionHistory: [
@@ -11,21 +9,10 @@ export default (state, action) => {
           {title: action.title, searchType: action.searchType}
         ]
       }
-    }
-    case 'NEW_SEARCH_TERM':
-      return {
-        ...state,
-        searchTerm: [...state.searchTerm, action.searchTerm]
-      }
     case 'UPDATE_SEARCH_TERM':
       return {
         ...state,
-        searchTerm: [...state.searchTerm.slice(0, -1), action.searchTerm]
-      }
-    case 'SET_SEARCH_TYPE':
-      return {
-        ...state,
-        searchType: action.searchType
+        searchTerm: action.searchTerm
       }
     case 'CHANGE_LIST_SIZE':
       return {

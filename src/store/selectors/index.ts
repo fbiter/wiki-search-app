@@ -1,21 +1,19 @@
 export const selectFilteredSubcategories = state =>
   state.subcategories.data.filter(w => {
     return (
-      w.title
-        .toLowerCase()
-        .indexOf(state.config.searchTerm.slice(-1)[0].toLowerCase()) !== -1
+      w.title.toLowerCase().indexOf(state.config.searchTerm.toLowerCase()) !==
+      -1
     )
   })
 
 export const selectFilteredArticles = state =>
   state.articles.data.filter(
     w =>
-      w.title
-        .toLowerCase()
-        .indexOf(state.config.searchTerm.slice(-1)[0].toLowerCase()) !== -1
+      w.title.toLowerCase().indexOf(state.config.searchTerm.toLowerCase()) !==
+      -1
   )
 
-export const selectCurSeacrhTerm = state => state.config.searchTerm.slice(-1)
+export const selectCurSeacrhTerm = state => state.config.searchTerm
 
 export const selectCurSelection = state => {
   if (state.config.selectionHistory.length)
@@ -28,7 +26,7 @@ export const selectCurConfig = state => {
   return {
     title: curSelection.title,
     searchType: curSelection.searchType,
-    searchTerm: state.config.searchTerm.slice(-1)[0],
+    searchTerm: state.config.searchTerm,
     listSize: state.config.listSize
   }
 }
