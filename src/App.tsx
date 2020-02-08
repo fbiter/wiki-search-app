@@ -7,8 +7,12 @@ export default function App() {
   return (
     <div>
       <Store>
-        <h1>Wiki Search App</h1>
-        <SearchPage />
+        <header>
+          <h1 className="header-title">Wiki Search App</h1>
+        </header>
+        <main>
+          <SearchPage />
+        </main>
       </Store>
     </div>
   )

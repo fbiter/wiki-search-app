@@ -6,7 +6,7 @@
     display: flex;
     flex-wrap: nowrap;
     background: var(--bg-color1);
-    margin: .1rem .9rem;
+    margin: .15rem 0;
     align-items: stretch;
     color: var(--color1);
     &:hover {
@@ -32,12 +32,15 @@
         // this rule applies when item-title has no siblings
         width: 100%
       }
+      &:hover {
+        background: var(--bg-color1-select);
+      }
     }
     .item-secondary {
       cursor: pointer;
       color: inherit;
       font-size: 1rem;
-      border-left: .1rem solid var(--bg-color-base);
+      border-left: .15rem solid var(--bg-color-base);
       box-sizing: border-box;
       padding: .7rem .9em;
       display: inline-block;
@@ -46,12 +49,33 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+
+      &:hover {
+        background: var(--bg-color1-select);
+      }
+    }
+    &.heading-item {
+      color: var(--color-off);
+      &:hover {
+        background: var(--bg-color1);
+      }
+      *:hover {
+        background: none;
+      }
+      .item-secondary {
+        cursor: default;
+      }
     }
   }
-  .heading-item {
-    border-radius: .5rem .5rem 0 0;
-    .item-secondary {
-      cursor: default;
+}
+
+@media only screen and (orientation: landscape) {
+  .list {
+    .list-item {
+      margin: .15rem .9rem !important;
+    }
+    .heading-item {
+      border-radius: .3rem .3rem 0 0;
     }
   }
 }

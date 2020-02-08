@@ -9,17 +9,17 @@ body {
   margin: 0;
   --bg-color-base: #f3f3f3;
   --bg-color1: #d7d7d7;
-  --bg-color1-hover: #b3b3b3;
+  --bg-color1-hover: #bbb;
+  --bg-color1-select: #a4a4a4;
   --color1: #0a0a0a;
+  --color-off: #666;
+  --bg-color1-inverse: #222;
 }
 
-h1, input {
-  margin: 0.7rem;
-}
-h1 {
+.header-title {
   font-size: 1.4rem;
-  background: #222;
-  color: #eee;
+  background: var(--bg-color1-inverse);
+  color: var(--bg-color-base);
   margin: 0;
   padding: 0.7rem 1rem;
 }
