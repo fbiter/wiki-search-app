@@ -22,6 +22,7 @@ export default {
     searchTerm: [''],
     listSize: 10,
     searchType: 'categories',
-    selection: []
+    startSelection: {title: '', searchType: 'categories'},
+    selectionHistory: []
   }
 }

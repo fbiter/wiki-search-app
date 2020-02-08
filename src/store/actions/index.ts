@@ -46,10 +46,11 @@ export function setSearchType(searchType: string) {
   }
 }
 
-export function addToSelection(category) {
+export function addToSelection(title, searchType) {
   return {
     type: 'ADD_TO_SELECTION',
-    category: category
+    title: title,
+    searchType
   }
 }
 
@@ -64,5 +65,12 @@ export function changeListSize(listSize: number) {
   return {
     type: 'CHANGE_LIST_SIZE',
     listSize: listSize
+  }
+}
+
+export function changeSelection(title) {
+  return {
+    type: 'EDIT_SELECTION',
+    title
   }
 }

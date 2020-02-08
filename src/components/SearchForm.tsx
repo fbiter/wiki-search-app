@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 import {StoreContext} from '../context'
 import {updateSearchTerm, changeListSize} from '../store/actions'
-import {selectCurSeacrhTerm} from '../store/selectors'
+import {selectCurSeacrhTerm, selectCurConfig} from '../store/selectors'
 import '../style/SearchForm'
 
 export default function SearchForm() {
@@ -13,11 +13,13 @@ export default function SearchForm() {
   const handleListSizeChange = e => {
     dispatch(changeListSize(parseInt(e.target.value)))
   }
+
+  const {searchType, listSize} = selectCurConfig(state)
   return (
     <form className="search-form" onSubmit={e => e.preventDefault()}>
       <div className="form-field-box">
         <label className="form-label" htmlFor="input-field">
-          Search {state.config.searchType}
+          Search {searchType}
         </label>
         <input
           id="input-field"
@@ -28,6 +30,7 @@ export default function SearchForm() {
           value={selectCurSeacrhTerm(state)}
         />
       </div>
+
       <div className="form-field-box">
         <label className="form-label" htmlFor="list-size-field">
           List size
@@ -36,7 +39,7 @@ export default function SearchForm() {
           id="list-size-field"
           className="form-input"
           onChange={handleListSizeChange}
-          value={state.config.listSize}
+          value={listSize}
         >
           <option value="10">10</option>
           <option value="15">15</option>

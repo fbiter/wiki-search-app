@@ -3,36 +3,38 @@ import {ArticleList, CategoryList} from '../components'
 import {StoreContext} from '../context'
 import {
   selectFilteredSubcategories,
-  selectFilteredArticles
+  selectFilteredArticles,
+  selectCurConfig
 } from '../store/selectors'
 import useFetch from '../hooks/useFetch'
 import SearchForm from '../components/SearchForm'
+import Breadcrumbs from '../components/Breadcrumbs'
 
 export default function SearchPage() {
   const {state, dispatch} = useContext(StoreContext)
+  const {searchType, listSize} = selectCurConfig(state)
 
   useFetch(state, dispatch)
 
   return (
     <>
       <SearchForm />
-      {state.config.searchType === 'categories' && (
+      {searchType !== 'categories' && <Breadcrumbs />}
+
+      {searchType === 'categories' && (
         <CategoryList
           data={state.categories.data.slice(0, state.config.listSize)}
         />
       )}
-      {state.config.searchType === 'subcategories' && (
+
+      {searchType === 'subcategories' && (
         <CategoryList
-          data={selectFilteredSubcategories(state).slice(
-            0,
-            state.config.listSize
-          )}
+          data={selectFilteredSubcategories(state).slice(0, listSize)}
         />
       )}
-      {state.config.searchType === 'articles' && (
-        <ArticleList
-          data={selectFilteredArticles(state).slice(0, state.config.listSize)}
-        />
+
+      {searchType === 'articles' && (
+        <ArticleList data={selectFilteredArticles(state).slice(0, listSize)} />
       )}
     </>
   )
