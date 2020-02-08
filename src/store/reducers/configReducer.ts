@@ -33,8 +33,9 @@ export default (state, action) => {
         listSize: action.listSize
       }
     case 'EDIT_SELECTION': {
-      const index =
-        state.selectionHistory.findIndex(s => s.title === action.title) + 1
+      const index = state.selectionHistory.findIndex(
+        s => s.title === action.title
+      )
       const newSelection = state.selectionHistory.slice(0, index)
       if (index !== -1) {
         return {
