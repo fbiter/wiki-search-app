@@ -4,8 +4,13 @@ html {
 }
 
 body {
-  background: #eee;
+  background: var(--bg-color-base);
+  color: var(--color1);
   margin: 0;
+  --bg-color-base: #f3f3f3;
+  --bg-color1: #d7d7d7;
+  --bg-color1-hover: #b3b3b3;
+  --color1: #0a0a0a;
 }
 
 h1, input {

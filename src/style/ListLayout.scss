@@ -5,12 +5,12 @@
     box-sizing: border-box;
     display: flex;
     flex-wrap: nowrap;
-    background: #d7d7d7;
+    background: var(--bg-color1);
     margin: .1rem .9rem;
     align-items: stretch;
-    color: #111;
+    color: var(--color1);
     &:hover {
-      background: #b3b3b3;
+      background: var(--bg-color1-hover);
     }
     .item-title {
       box-sizing: border-box;
@@ -37,7 +37,7 @@
       cursor: pointer;
       color: inherit;
       font-size: 1rem;
-      border-left: .1rem solid #eee;
+      border-left: .1rem solid var(--bg-color-base);
       box-sizing: border-box;
       padding: .7rem .9em;
       display: inline-block;

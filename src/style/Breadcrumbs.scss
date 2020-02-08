@@ -4,12 +4,12 @@
     display: inline-block;
     padding: .5rem .7rem;
     margin: 0 .9rem .9rem 0;
-    background: #d7d7d7;
+    background: var(--bg-color1);
     border-radius: .5rem;
     cursor: pointer;
 
     &:hover {
-      background: #b3b3b3;
+      background: var(--bg-color1-hover);
     }
   }
 }
