@@ -2,25 +2,22 @@ import React from 'react'
 import {Store} from './store'
 import './style/root'
 import {SearchPage} from './pages'
+import Header from './components/Header'
+import Footer from './components/Footer'
 
 export default function App() {
   return (
     <>
       <div className="topPage">
         <Store>
-          <header className="header">
-            <h1 className="header__title">Wiki Search App</h1>
-          </header>
-
+          <Header title="Wiki Search App" />
           <main>
             <SearchPage />
           </main>
         </Store>
       </div>
 
-      <footer className="footer">
-        <span className="footer__item">filip.biterski@gmail.com</span>
-      </footer>
+      <Footer label="filip.biterski@gmail.com" />
     </>
   )
 }
