@@ -1,7 +1,7 @@
 html {
   --font1: Verdana, Arial, Helvetica, sans-serif;
   --font2: Courier, "Courier New", monospace;
-  font-size: 3vw;
+  font-size: 3.8vw;
   font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
@@ -14,7 +14,7 @@ body {
   --bg-color1-hover: #bbb;
   --bg-color1-select: #a4a4a4;
   --color1: #0a0a0a;
-  --color-off: #666;
+  --color-off: #555;
   --bg-color1-inverse: #222;
 }
 
@@ -23,7 +23,7 @@ body {
   background: var(--bg-color1-inverse);
   color: var(--bg-color-base);
   margin: 0;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 .topPage {
