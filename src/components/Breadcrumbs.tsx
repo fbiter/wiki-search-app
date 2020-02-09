@@ -13,7 +13,7 @@ export default function Breadcrumbs() {
       {state.config.selectionHistory.map(s => (
         <span
           key={s.title}
-          className="crumb"
+          className="breadcrumbs__crumb"
           onClick={() => handleClick(s.title)}
         >
           {s.title}

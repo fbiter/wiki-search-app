@@ -1,32 +1,32 @@
-.search-form {
+.form {
   margin: 2rem .9rem 1rem;
   font-size: 1rem;
 }
-.form-field-box {
+.form__section {
   display: inline-block;
   margin-right: .9rem;
+}
   
-  .form-label {
-    display: block;
-    margin: 0 0 .5rem 0;
-    font-size: inherit;
-  }
+.form__label {
+  display: block;
+  margin: 0 0 .5rem 0;
+  font-size: inherit;
+}
 
-  .form-input {
-    color: var(--color1);
-    background: var(--bg-color1);
-    padding: .5rem .5rem;
+.form__input {
+  color: var(--color1);
+  background: var(--bg-color1);
+  padding: .5rem .5rem;
+  border: none;
+  margin: 0;
+  font-size: inherit;
+  border-radius: .2rem;
+  border: none;
+  &:focus {
+    // background: #b3b3b3;
+    outline: var(--color1) .1rem solid;
+  }
+  .form__input-option {
     border: none;
-    margin: 0;
-    font-size: inherit;
-    border-radius: .2rem;
-    border: none;
-    &:focus {
-      // background: #b3b3b3;
-      outline: var(--color1) .1rem solid;
-    }
-    option {
-      border: none;
-    }
   }
 }

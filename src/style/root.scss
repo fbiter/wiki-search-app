@@ -18,7 +18,7 @@ body {
   --bg-color1-inverse: #222;
 }
 
-.header-title {
+.header__title {
   font-size: 1rem;
   background: var(--bg-color1-inverse);
   color: var(--bg-color-base);
@@ -33,18 +33,18 @@ body {
   }
 }
 
-footer {
+.footer {
   display: block;
   background: var(--bg-color1-inverse);
   height: 10vh;
-  span {
-    box-sizing: border-box;
-    font-family: var(--font2);
-    font-size: .9rem;
-    padding: 0 .9rem;
-    color: var(--bg-color-base);
-    line-height: 10vh;
-  }
+}
+.footer__item {
+  box-sizing: border-box;
+  font-family: var(--font2);
+  font-size: .9rem;
+  padding: 0 .9rem;
+  color: var(--bg-color-base);
+  line-height: 10vh;
 }
 
 // for wide displays

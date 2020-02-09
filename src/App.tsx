@@ -8,8 +8,8 @@ export default function App() {
     <>
       <div className="topPage">
         <Store>
-          <header>
-            <h1 className="header-title">Wiki Search App</h1>
+          <header className="header">
+            <h1 className="header__title">Wiki Search App</h1>
           </header>
 
           <main>
@@ -18,8 +18,8 @@ export default function App() {
         </Store>
       </div>
 
-      <footer>
-        <span>filip.biterski@gmail.com</span>
+      <footer className="footer">
+        <span className="footer__item">filip.biterski@gmail.com</span>
       </footer>
     </>
   )

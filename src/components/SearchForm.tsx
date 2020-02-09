@@ -16,14 +16,14 @@ export default function SearchForm() {
 
   const {searchType, listSize} = selectCurConfig(state)
   return (
-    <form className="search-form" onSubmit={e => e.preventDefault()}>
-      <div className="form-field-box">
-        <label className="form-label" htmlFor="input-field">
+    <form className="form" onSubmit={e => e.preventDefault()}>
+      <div className="form__section">
+        <label className="form__label" htmlFor="search-field">
           Search {searchType}
         </label>
         <input
-          id="input-field"
-          className="form-input"
+          id="search-field"
+          className="form__input"
           type="text"
           onChange={handleChange}
           placeholder="type here"
@@ -31,19 +31,25 @@ export default function SearchForm() {
         />
       </div>
 
-      <div className="form-field-box">
-        <label className="form-label" htmlFor="list-size-field">
+      <div className="form__section">
+        <label className="form__label" htmlFor="list-size-field">
           List size
         </label>
         <select
           id="list-size-field"
-          className="form-input"
+          className="form__input"
           onChange={handleListSizeChange}
           value={listSize}
         >
-          <option value="10">10</option>
-          <option value="15">15</option>
-          <option value="20">20</option>
+          <option className="form__input-option" value="10">
+            10
+          </option>
+          <option className="form__input-option" value="15">
+            15
+          </option>
+          <option className="form__input-option" value="20">
+            20
+          </option>
         </select>
       </div>
     </form>
