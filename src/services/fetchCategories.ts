@@ -5,8 +5,8 @@ export default (config): Promise<string[]> => {
   const url =
     apiEndpoint +
     catQuery +
-    `&limit=${config.listSize}` +
-    `&search=Category:${config.searchTerm}`
+    `&search=Category:${config.searchTerm}` +
+    `&limit=${config.listSize}`
   return fetch(url)
     .then(res => res.json())
     .then(res => res[1].map(c => c.slice(9)))
