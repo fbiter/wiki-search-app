@@ -1,5 +1,4 @@
-export default (state, action) => {
-  console.log(state)
+export default (state, action) => 
   switch (action.type) {
     case 'ADD_TO_SELECTION':
       return {
