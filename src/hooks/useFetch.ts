@@ -1,23 +1,14 @@
 import {useEffect} from 'react'
-import {
-  fetchCategories,
-  fetchSubcategories,
-  fetchArticlesByCategory
-} from '../services'
-import {setCategories, setSubcategories, setArticles} from '../store/actions'
+import {fetchSubcategories, fetchArticlesByCategory} from '../services'
+import {setSubcategories, setArticles} from '../store/actions'
 import {selectCurConfig} from '../store/selectors'
+import {debouncedCategoryFetch} from './utils'
 
 export default (state, dispatch) => {
   useEffect(() => {
     const curConfig = selectCurConfig(state)
     if (curConfig.searchType === 'categories') {
-      if (curConfig.searchTerm.length > 0) {
-        fetchCategories(curConfig).then(res => {
-          dispatch(setCategories(res))
-        })
-      } else {
-        dispatch(setCategories([]))
-      }
+      debouncedCategoryFetch(curConfig, dispatch)
     } else if (
       curConfig.searchType === 'subcategories' &&
       curConfig.searchTerm.length === 0
