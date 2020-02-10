@@ -10,6 +10,7 @@ import {selectCurConfig} from '../store/selectors'
 export default (state, dispatch) => {
   useEffect(() => {
     const curConfig = selectCurConfig(state)
+    console.log(curConfig)
     if (curConfig.searchType === 'categories') {
       if (curConfig.searchTerm.length > 0) {
         fetchCategories(curConfig).then(res => {
