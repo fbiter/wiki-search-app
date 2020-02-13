@@ -43,6 +43,11 @@ export default (state, action) => {
           }
         ]
       }
+    case 'SET_START_SEARCH_TYPE':
+      return {
+        ...state,
+        startSelection: {...state.startSelection, searchType: action.searchType}
+      }
     default:
       return state
   }

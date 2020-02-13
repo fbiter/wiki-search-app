@@ -26,3 +26,10 @@ export function changeSelection(title) {
     title
   }
 }
+
+export function setStartSearchType(searchType) {
+  return {
+    type: 'SET_START_SEARCH_TYPE',
+    searchType
+  }
+}

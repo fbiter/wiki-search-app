@@ -12,9 +12,10 @@ import Breadcrumbs from '../components/Breadcrumbs'
 
 export default function SearchPage() {
   const {state, dispatch} = useContext(StoreContext)
-  const {searchType, listSize} = selectCurConfig(state)
+  const curConfig = selectCurConfig(state)
+  const {searchType, listSize} = curConfig
 
-  useFetch(state, dispatch)
+  useFetch(state, curConfig, dispatch)
 
   return (
     <>

@@ -1,5 +1,6 @@
 import {fetchCategories} from '../../services'
-import {setCategories} from '../../store/actions'
+import {setCategories, setArticles} from '../../store/actions'
+import fetchArticles from '../../services/fetchArticles'
 
 function debounce(func, wait) {
   let timeout
@@ -21,5 +22,15 @@ export const debouncedCategoryFetch = debounce((curConfig, dispatch) => {
     })
   } else {
     dispatch(setCategories([]))
+  }
+}, 600)
+
+export const debouncedArticleFetch = debounce((curConfig, dispatch) => {
+  if (curConfig.searchTerm.length > 0) {
+    fetchArticles(curConfig).then(res => {
+      dispatch(setArticles(res))
+    })
+  } else {
+    dispatch(setArticles([]))
   }
 }, 600)
