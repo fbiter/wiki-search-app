@@ -26,6 +26,11 @@
     // background: #b3b3b3;
     outline: var(--color1) .1rem solid;
   }
+  &[disabled] {
+    color: var(--color-off);
+    cursor: not-allowed;
+    background: var(--bg-color-off)
+  }
   .form__input-option {
     border: none;
   }

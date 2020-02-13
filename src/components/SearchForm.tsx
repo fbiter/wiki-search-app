@@ -22,26 +22,7 @@ export default function SearchForm() {
   const {searchType, listSize} = selectCurConfig(state)
   return (
     <form className="form" onSubmit={e => e.preventDefault()}>
-      <div className="form__section">
-        <label className="form__label" htmlFor="list-search-types">
-          Search type
-        </label>
-        <select
-          id="list-search-types"
-          className="form__input"
-          onChange={handleSearchTypeChange}
-          value={searchType}
-          disabled={state.config.selectionHistory.length > 0}
-        >
-          <option className="form__input-option" value="categories">
-            Categories
-          </option>
-          <option className="form__input-option" value="articles">
-            Articles
-          </option>
-        </select>
-      </div>
-
+      {/* Search */}
       <div className="form__section">
         <label className="form__label" htmlFor="search-field">
           Search {searchType}
@@ -56,6 +37,7 @@ export default function SearchForm() {
         />
       </div>
 
+      {/* List size */}
       <div className="form__section">
         <label className="form__label" htmlFor="list-size-field">
           List size
@@ -74,6 +56,27 @@ export default function SearchForm() {
           </option>
           <option className="form__input-option" value="20">
             20
+          </option>
+        </select>
+      </div>
+
+      {/* Search type */}
+      <div className="form__section">
+        <label className="form__label" htmlFor="list-search-types">
+          Search type
+        </label>
+        <select
+          id="list-search-types"
+          className="form__input"
+          onChange={handleSearchTypeChange}
+          value={searchType}
+          disabled={state.config.selectionHistory.length > 0}
+        >
+          <option className="form__input-option" value="categories">
+            Categories
+          </option>
+          <option className="form__input-option" value="articles">
+            Articles
           </option>
         </select>
       </div>
