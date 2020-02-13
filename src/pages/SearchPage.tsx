@@ -15,7 +15,7 @@ export default function SearchPage() {
   const curConfig = selectCurConfig(state)
   const {searchType, listSize} = curConfig
 
-  useFetch(state, curConfig, dispatch)
+  useFetch(curConfig, dispatch)
 
   return (
     <>

@@ -27,6 +27,7 @@ export const selectCurConfig = state => {
     title: curSelection.title,
     searchType: curSelection.searchType,
     searchTerm: state.config.searchTerm,
-    listSize: state.config.listSize
+    listSize: state.config.listSize,
+    selectionHistory: state.config.selectionHistory
   }
 }
