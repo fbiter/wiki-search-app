@@ -10,7 +10,7 @@ export default (state, action) => {
       return {
         ...state,
         data: action.categories.map(c => ({
-          title: c,
+          ...c,
           get link() {
             return link.call(this)
           }

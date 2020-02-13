@@ -13,7 +13,7 @@ import Breadcrumbs from '../components/Breadcrumbs'
 export default function SearchPage() {
   const {state, dispatch} = useContext(StoreContext)
   const curConfig = selectCurConfig(state)
-  const {searchType, listSize} = curConfig
+  const {searchType, listSize, searchTerm} = curConfig
 
   useFetch(curConfig, dispatch)
 
@@ -22,7 +22,7 @@ export default function SearchPage() {
       <SearchForm />
       {searchType !== 'categories' && <Breadcrumbs />}
 
-      {searchType === 'categories' && (
+      {searchType === 'categories' && searchTerm.length > 0 && (
         <CategoryList
           data={state.categories.data.slice(0, state.config.listSize)}
         />

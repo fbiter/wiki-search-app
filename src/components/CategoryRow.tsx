@@ -13,18 +13,18 @@ export default function CategoryRow(props) {
       <span
         className="list__item-field list__item-field--secondary"
         onClick={() => {
-          if (item.subcats > 0) handleSubcatClick(item)
+          if (item.sizes.subcats > 0) handleSubcatClick(item)
         }}
       >
-        {item.subcats}
+        {item.sizes.subcats}
       </span>
       <a
         className="list__item-field list__item-field--secondary"
         onClick={() => {
-          if (item.pages > 0) handleArticleClick(item)
+          if (item.sizes.articles > 0) handleArticleClick(item)
         }}
       >
-        {item.pages}
+        {item.sizes.articles}
       </a>
     </li>
   )
