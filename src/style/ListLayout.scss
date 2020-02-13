@@ -43,6 +43,12 @@
   }
 }
 
+a.list__item-field--primary {
+  // color: #24e;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
 .list__item-field--secondary {
   cursor: pointer;
   border-left: .15rem solid var(--bg-color-base);
