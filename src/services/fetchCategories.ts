@@ -29,7 +29,7 @@ export default (config: CurConfig): Promise<Item[]> => {
     .then((res: Resource) =>
       Object.entries(res.query.pages).map(e => ({
         title: e[1].title.slice(9),
-        link: convertToLink(e[1].title, 'category'),
+        link: convertToLink(e[1].title.slice(9), 'category'),
         sizes: {
           subcats: e[1].categoryinfo.subcats,
           articles: e[1].categoryinfo.pages
