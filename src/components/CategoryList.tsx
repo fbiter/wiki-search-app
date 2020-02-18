@@ -3,11 +3,19 @@ import {StoreContext} from '../context'
 import CategoryRow from './CategoryRow'
 import {addToSelection, updateSearchTerm} from '../store/actions'
 import {ListLayout} from '../layouts'
-import {selectSlicedCurData} from '../store/selectors'
+import {
+  selectSlicedCurData,
+  selectCurSelection,
+  selectFilteredSlicedCurData
+} from '../store/selectors'
 
 export default function CategoryList() {
   const {state, dispatch} = useContext(StoreContext)
-  const data = selectSlicedCurData(state)
+  const {searchType} = selectCurSelection(state)
+  const data =
+    searchType === 'subcategories'
+      ? selectFilteredSlicedCurData(state)
+      : selectSlicedCurData(state)
 
   return (
     <ListLayout labels={['Title', 'Subcategories', 'Articles']}>

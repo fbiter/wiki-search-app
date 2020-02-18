@@ -1,12 +1,20 @@
 import React, {useContext} from 'react'
 import ArticleRow from './ArticleRow'
 import {ListLayout} from '../layouts'
-import {selectSlicedCurData} from '../store/selectors'
+import {
+  selectSlicedCurData,
+  selectCurConfig,
+  selectFilteredSlicedCurData
+} from '../store/selectors'
 import {StoreContext} from '../context'
 
 export default function ArticleList() {
   const {state} = useContext(StoreContext)
-  const data = selectSlicedCurData(state)
+  const {selectionHistory} = selectCurConfig(state)
+  const data =
+    selectionHistory.length > 0
+      ? selectFilteredSlicedCurData(state)
+      : selectSlicedCurData(state)
 
   return (
     <ListLayout labels={['Title']}>

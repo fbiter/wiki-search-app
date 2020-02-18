@@ -2,7 +2,8 @@ import {
   StateInterface,
   Article,
   Category,
-  CurConfig
+  CurConfig,
+  Item
 } from '../../TypeDeclarations'
 
 export const selectFilteredSubcategories = (state: StateInterface) =>
@@ -48,4 +49,17 @@ export const selectAllCurData = (state: StateInterface) => {
 export const selectSlicedCurData = (state: StateInterface) => {
   const listSize = selectCurConfig(state).listSize
   return selectAllCurData(state).slice(0, listSize)
+}
+
+export const selectFilteredData = (state: StateInterface): Item[] => {
+  return selectAllCurData(state).filter(
+    w =>
+      w.title.toLowerCase().indexOf(state.config.searchTerm.toLowerCase()) !==
+      -1
+  )
+}
+
+export const selectFilteredSlicedCurData = (state: StateInterface) => {
+  const filteredData = selectFilteredData(state)
+  return filteredData.slice(0, state.config.listSize)
 }
