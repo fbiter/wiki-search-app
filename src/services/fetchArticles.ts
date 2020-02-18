@@ -1,6 +1,8 @@
 import {apiEndpoint, artQuery} from './settings'
+import {Item} from '../TypeDeclarations'
+import {convertToLink} from './utils'
 
-export default (config): Promise<string[]> => {
+export default (config): Promise<Item[]> => {
   if (!config) return Promise.resolve([])
   const url =
     apiEndpoint +
@@ -9,5 +11,14 @@ export default (config): Promise<string[]> => {
     `&limit=${config.listSize}`
   return fetch(url)
     .then(res => res.json())
-    .then(res => res[1])
+    .then((res: Resource) =>
+      res[1].map(a => {
+        return {
+          title: a,
+          link: convertToLink(a, 'article')
+        }
+      })
+    ) as Promise<Item[]>
 }
+
+type Resource = [string, string[]]

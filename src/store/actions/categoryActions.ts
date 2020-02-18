@@ -1,4 +1,6 @@
-export function setCategories(categories: string[]) {
+import {Item} from '../../TypeDeclarations'
+
+export function setCategories(categories: Item[]) {
   return {
     type: 'SET_CATEGORIES',
     categories: categories

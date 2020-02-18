@@ -1,7 +1,11 @@
 import React from 'react'
+import {Item} from '../TypeDeclarations'
 
-export default function CategoryRow(props) {
-  const {item, handleSubcatClick, handleArticleClick} = props
+export default function CategoryRow({
+  item,
+  handleSubcatClick,
+  handleArticleClick
+}: Props) {
   return (
     <li className="list__item">
       <a
@@ -28,4 +32,10 @@ export default function CategoryRow(props) {
       </a>
     </li>
   )
+}
+
+type Props = {
+  item: Item
+  handleSubcatClick: (item: Item) => void
+  handleArticleClick: (item: Item) => void
 }

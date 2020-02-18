@@ -1,7 +1,10 @@
 import React from 'react'
 
-export default function HeadingRow(props) {
-  const {labels} = props
+type Props = {
+  labels: string[]
+}
+
+export default function HeadingRow({labels}: Props) {
   return (
     <li className="list__item list__item--heading">
       <span className="list__item-field list__item-field--primary">

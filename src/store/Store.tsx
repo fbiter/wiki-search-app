@@ -2,7 +2,7 @@ import React from 'react'
 import {useReducer} from 'react'
 import {rootReducer} from './reducers'
 import {StoreContext} from '../context'
-import initialValue from './initialValue'
+import {initialValue} from './initialValue'
 
 // Store
 export default function Store(props) {

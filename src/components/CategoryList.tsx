@@ -3,10 +3,11 @@ import {StoreContext} from '../context'
 import CategoryRow from './CategoryRow'
 import {addToSelection, updateSearchTerm} from '../store/actions'
 import {ListLayout} from '../layouts'
+import {selectSlicedCurData} from '../store/selectors'
 
-export default function CategoryList(props) {
+export default function CategoryList() {
   const {state, dispatch} = useContext(StoreContext)
-  const {data} = props
+  const data = selectSlicedCurData(state)
 
   return (
     <ListLayout labels={['Title', 'Subcategories', 'Articles']}>

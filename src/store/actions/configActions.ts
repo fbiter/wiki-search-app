@@ -5,7 +5,10 @@ export function updateSearchTerm(searchTerm: string) {
   }
 }
 
-export function addToSelection(title, searchType) {
+export function addToSelection(
+  title: string,
+  searchType: 'subcategories' | 'articles'
+) {
   return {
     type: 'ADD_TO_SELECTION',
     title: title,
@@ -20,14 +23,14 @@ export function changeListSize(listSize: number) {
   }
 }
 
-export function changeSelection(title) {
+export function changeSelection(title: string) {
   return {
     type: 'EDIT_SELECTION',
     title
   }
 }
 
-export function setStartSearchType(searchType) {
+export function setStartSearchType(searchType: 'categories' | 'articles') {
   return {
     type: 'SET_START_SEARCH_TYPE',
     searchType

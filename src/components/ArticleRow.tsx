@@ -1,7 +1,7 @@
 import React from 'react'
+import {Item} from '../TypeDeclarations'
 
-export default function ArticleRow(props) {
-  const {item} = props
+export default function ArticleRow({item}: Props) {
   return (
     <li className="list__item">
       <a
@@ -12,4 +12,8 @@ export default function ArticleRow(props) {
       </a>
     </li>
   )
+}
+
+type Props = {
+  item: Item
 }

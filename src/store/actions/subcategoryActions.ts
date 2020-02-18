@@ -1,4 +1,6 @@
-export function setSubcategories(subcategories) {
+import {Item} from '../../TypeDeclarations'
+
+export function setSubcategories(subcategories: Item[]) {
   return {
     type: 'SET_SUBCATEGORIES',
     subcategories: subcategories

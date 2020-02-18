@@ -9,12 +9,7 @@ export default (state, action) => {
       }
       return {
         ...state,
-        data: action.subcategories.map(c => ({
-          ...c,
-          get link() {
-            return link.call(this)
-          }
-        }))
+        data: action.subcategories
       }
     }
     case 'UPDATE_SUBCATEGORY_DETAILS': {
