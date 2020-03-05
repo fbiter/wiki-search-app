@@ -26,14 +26,18 @@ export default (config: CurConfig): Promise<Item[]> => {
       if (!res.ok) throw new Error(res.statusText)
       return res.json()
     })
-    .then((res: Resource) =>
-      Object.entries(res.query.pages).map(e => ({
-        title: e[1].title.slice(9),
-        link: convertToLink(e[1].title.slice(9), 'category'),
-        sizes: {
-          subcats: e[1].categoryinfo.subcats,
-          articles: e[1].categoryinfo.pages
-        }
-      }))
-    ) as Promise<Item[]>
+    .then((res: Resource) => {
+      if (res.query) {
+        return Object.entries(res.query.pages).map(e => ({
+          title: e[1].title.slice(9),
+          link: convertToLink(e[1].title.slice(9), 'category'),
+          sizes: {
+            subcats: e[1].categoryinfo.subcats,
+            articles: e[1].categoryinfo.pages
+          }
+        }))
+      } else {
+        return []
+      }
+    }) as Promise<Item[]>
 }
